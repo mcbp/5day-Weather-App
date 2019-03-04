@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import WeatherInput from './WeatherInput'
 import WeatherDay from './WeatherDay'
 import API_KEY from './API_KEY'
+import Footer from './Footer'
 
 class App extends Component {
 		
@@ -41,30 +42,24 @@ class App extends Component {
 			// create forecast object schema
 			
 			for (let i = 0; i < 5; i++) {
-				days.push({day: "", date: "", weatherType: "", minTemp: "N/A", maxTemp: "N/A"})
+				days.push({day: "", weatherType: "", minTemp: "N/A", maxTemp: "N/A"})
 			}
 			
 			let currentDayIndex = 0;
 			let weatherTypeList = []
 			let weatherList = this.state.weather.list
-			let ifAfterNineOffset = 0
-			// No API data available if after 21:00 so start at next day
-			if (new Date() >= (new Date()).setHours(21,0,0,0)) {
-				ifAfterNineOffset = 86400
-			}
-			
 			for (let i = 0; i < weatherList.length; i++) {
+				
 				// set day of the week index and mos common weather type
-				if (weatherList[i].dt > this.state.currentDate + 86400*currentDayIndex + ifAfterNineOffset || weatherList.length-1 === i) {
+				if (weatherList[i].dt > this.state.currentDate + 86400*currentDayIndex) {
 					days[currentDayIndex].weatherType = this.findMostCommonString(weatherTypeList)
 					weatherTypeList = []
 					currentDayIndex++
 					if (currentDayIndex > 4) break
 				}
 				
-				// set day and date
+				// set day name
 				days[currentDayIndex].day = this.dayToString(new Date(weatherList[i].dt*1000).getDay())
-				days[currentDayIndex].date = new Date(weatherList[i].dt*1000).getDate()
 				
 				// gather weather types
 				weatherTypeList.push(weatherList[i].weather[0].description)
@@ -131,6 +126,8 @@ class App extends Component {
 					/>
 					
 					<WeatherDay	forecast={this.state.forecast} />
+					
+					<Footer />
 					
 			</div>
 		)

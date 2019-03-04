@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import WeatherImage from './WeatherImage'
 
 class WeatherDay extends Component {
 	
@@ -11,12 +12,27 @@ class WeatherDay extends Component {
 									return (
 										<div key={WeatherDay.day} className="WeatherDay">
 											<h2>{WeatherDay.day}</h2>
-											<p>Type: {WeatherDay.weatherType}</p>
-											<p>Min: {WeatherDay.minTemp}°C</p>
-											<p>Max: {WeatherDay.maxTemp}°C</p>
+											<WeatherImage weatherType={WeatherDay.weatherType} />
+											<p>{WeatherDay.weatherType}</p>
+											<div className="tempContainer">
+												<p>
+													<span>{Math.round(WeatherDay.minTemp)}°C</span>
+													<span> | </span>
+													<span>{Math.round(WeatherDay.maxTemp)}°C</span>
+												</p>
+											</div>
 										</div>
 									)
 						})
+					}
+					{this.props.forecast.length === 0 &&
+						<div className="WeatherDayListNoResults">
+							<div className="WeatherDayNoResults"><h4>F1</h4></div>
+							<div className="WeatherDayNoResults"><h4>F2</h4></div>
+							<div className="WeatherDayNoResults"><h4>F3</h4></div>
+							<div className="WeatherDayNoResults"><h4>F4</h4></div>
+							<div className="WeatherDayNoResults"><h4>F5</h4></div>
+						</div>
 					}
 				</div>
 			</div>
