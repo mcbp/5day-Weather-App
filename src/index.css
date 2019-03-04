@@ -133,6 +133,7 @@ select.form-control:focus,
 	padding-bottom: 30px;
 	background-color: #fff;
 	border-radius: 5px;
+	box-shadow: 0 0 8px #333;
 }
 
 .WeatherDayNoResults {
@@ -145,6 +146,7 @@ select.form-control:focus,
 	background-color: #fff;
 	border-radius: 5px;
 	height: 268px;
+	box-shadow: 0 0 8px #333;
 }
 
 .WeatherImage img {
