@@ -67,7 +67,19 @@ a, a:hover, a:focus {
 
 .input-group {
 	/*box-shadow: 4px 4px 0 rgba(200,200,200,0.5);*/
+	width: 100%;
 	border-radius: 25px;
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 20px;
+}
+
+select {
+	border-radius: 0 25px 25px 0;
+	border: 0;
+	color: #777;
+	text-indent: 5px;
+	padding-right: 15px;
 }
 
 input[type="text"],

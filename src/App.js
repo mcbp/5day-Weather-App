@@ -14,6 +14,7 @@ class App extends Component {
 		this.state = {
 			weather: "",
 			query: "",
+			countryQuery: "GB",
 			currentCity: "Search a town...",
 			currentDate: (new Date()).setHours(23,59,59,0)/1000,
 			forecast: ""
@@ -21,7 +22,8 @@ class App extends Component {
 	}
 	
 	getCityWeather = () => {
-		fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + this.state.query + ",uk&units=metric&appid=" + API_KEY.key)
+		if (this.state.query !== "") {
+			fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + this.state.query + "," + this.state.countryQuery + "&units=metric&appid=" + API_KEY.key)
 			.then(response => response.json())
 			.then(
 				//success
@@ -29,10 +31,16 @@ class App extends Component {
 					weather: response,
 				}, this.createForecast)
 			)
+		}
 	}
 	
 	handleWeatherInput = e => {
 		this.setState({query: e.target.value}, this.getCityWeather)
+	}
+	
+	handleCountryQuery = e => {
+		const country = this.countryNameToCode(e.target.value)
+		this.setState({countryQuery: country}, this.getCityWeather)
 	}
 	
 	createForecast = () => {
@@ -99,6 +107,17 @@ class App extends Component {
 		}
 	}
 	
+	countryNameToCode = country => {
+		switch(country) {
+			case "Great Britain": return "GB"
+			case "Germany": return "DE"
+			case "United States": return "US"
+			case "France": return "FR"
+			case "Brazil": return "BR"
+			case "China": return "CN"			
+		}
+	}
+	
 	findMostCommonString = strings => {
 		return strings.sort((a,b) =>
 			strings.filter(v => v===a).length
@@ -110,7 +129,7 @@ class App extends Component {
 		let searchResult
 		
 		if(this.state.weather.cod === '200') {
-			searchResult = <h1 className="display-3">{this.state.weather.city.name + ", UK"}</h1>
+			searchResult = <h1 className="display-3">{this.state.weather.city.name + ", " + this.state.weather.city.country}</h1>
 		} else if (this.state.weather.cod === '404') {
 			searchResult = <h3>No results found...</h3>
 		} else {
@@ -123,6 +142,8 @@ class App extends Component {
 						handleWeatherInput={this.handleWeatherInput}
 						searchResult={searchResult}
 						query={this.state.query}
+						handleCountryQuery={this.handleCountryQuery}
+						CountryQuery={this.state.countryQuery}
 					/>
 					
 					<WeatherDay	forecast={this.state.forecast} />

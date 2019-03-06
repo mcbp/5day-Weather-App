@@ -18,6 +18,19 @@ class WeatherInput extends Component {
 							value={this.props.query}
 						/>
 					</div>
+					<div className="input-group">
+						<div className="input-group-prepend">
+							<span className="input-group-text" id="basic-addon1">Country</span>
+						</div>
+						<select onChange={this.props.handleCountryQuery} value={this.props.countryQuery}>
+								<option>Great Britain</option>
+								<option>Brazil</option>
+								<option>China</option>
+								<option>France</option>
+								<option>Germany</option>
+								<option>United States</option>
+						</select>
+					</div>
 				</div>
 				<div className="search-result-container">
 					{this.props.searchResult}
