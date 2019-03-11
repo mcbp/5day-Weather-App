@@ -8,7 +8,7 @@ class WeatherInput extends Component {
 				<div className="col-md-4 offset-md-8">
 					<div className="input-group">
 						<div className="input-group-prepend">
-							<span className="input-group-text" id="basic-addon1">City/Town</span>
+							<span className="input-group-text" id="basic-addon1">City/Town <i class="fas fa-home"></i></span>
 						</div>
 						<input
 							className="form-control"
@@ -20,7 +20,7 @@ class WeatherInput extends Component {
 					</div>
 					<div className="input-group">
 						<div className="input-group-prepend">
-							<span className="input-group-text" id="basic-addon1">Country</span>
+							<span className="input-group-text" id="basic-addon1">Country <i class="fas fa-globe-europe"></i></span>
 						</div>
 						<select onChange={this.props.handleCountryQuery} value={this.props.countryQuery}>
 								<option>Great Britain</option>
@@ -32,7 +32,7 @@ class WeatherInput extends Component {
 						</select>
 					</div>
 				</div>
-				<div className="search-result-container">
+				<div className={"search-result-container " + (this.props.fade ? 'fade-in' : '')}>
 					{this.props.searchResult}
 				</div>
 			</div>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import WeatherImage from './WeatherImage'
+import WeatherSlideshow from './WeatherSlideshow'
 
 class WeatherDay extends Component {
 	
 	render() {
 		return (
 			<div className="container">
-				<div className="WeatherDayList">
+	<div className={"WeatherDayList "  + (this.props.fade ? 'fade-in-and-drop' : '')}>
 					{this.props.forecast.length !== 0 &&
 						this.props.forecast.map(WeatherDay => {
 									return (
@@ -27,11 +28,13 @@ class WeatherDay extends Component {
 					}
 					{this.props.forecast.length === 0 &&
 						<div className="WeatherDayListNoResults">
-							<div className="WeatherDayNoResults"><h4>F1</h4></div>
+							<h1>Find your weather forecast...<WeatherSlideshow /></h1>
+							
+							{/*<div className="WeatherDayNoResults"><h4>F1</h4></div>
 							<div className="WeatherDayNoResults"><h4>F2</h4></div>
 							<div className="WeatherDayNoResults"><h4>F3</h4></div>
 							<div className="WeatherDayNoResults"><h4>F4</h4></div>
-							<div className="WeatherDayNoResults"><h4>F5</h4></div>
+							<div className="WeatherDayNoResults"><h4>F5</h4></div>*/}
 						</div>
 					}
 				</div>

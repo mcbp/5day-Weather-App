@@ -17,7 +17,8 @@ class App extends Component {
 			countryQuery: "GB",
 			currentCity: "Search a town...",
 			currentDate: (new Date()).setHours(23,59,59,0)/1000,
-			forecast: ""
+			forecast: "",
+			fade: false
 		}
 	}
 	
@@ -45,6 +46,7 @@ class App extends Component {
 	
 	createForecast = () => {
 		let days = []
+		let fade = false
 		if (this.state.weather.cod ==='200') {
 				
 			// create forecast object schema
@@ -86,11 +88,13 @@ class App extends Component {
 						
 				}
 				
+				fade = true
+				
 			}
 			
 		}
 		
-		this.setState({forecast: days})
+		this.setState({forecast: days, fade: fade})
 		
 	}
 	
@@ -131,9 +135,9 @@ class App extends Component {
 		if(this.state.weather.cod === '200') {
 			searchResult = <h1 className="display-3">{this.state.weather.city.name + ", " + this.state.weather.city.country}</h1>
 		} else if (this.state.weather.cod === '404') {
-			searchResult = <h3>No results found...</h3>
+			searchResult = <h3><i class="fas fa-search"></i> No results found...</h3>
 		} else {
-			searchResult = <h3>Please search for a town...</h3>
+			searchResult = <h3></h3>
 		}
 		
 		return (
@@ -144,9 +148,10 @@ class App extends Component {
 						query={this.state.query}
 						handleCountryQuery={this.handleCountryQuery}
 						CountryQuery={this.state.countryQuery}
+						fade={this.state.fade}
 					/>
 					
-					<WeatherDay	forecast={this.state.forecast} />
+					<WeatherDay	forecast={this.state.forecast} fade={this.state.fade}/>
 					
 					<Footer />
 					

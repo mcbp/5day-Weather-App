@@ -48,11 +48,15 @@ a, a:hover, a:focus {
 	color: #ccc;
 }
 
+i {
+	padding-left: 8px;
+	padding-right: 5px;
+}
 
 .WeatherInput {
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("img/banner.jpg");
+	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/banner.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -125,11 +129,17 @@ select.form-control:focus,
 }
 
 .WeatherDayListNoResults {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
 	width: 100%;
 	color: #333;
+	text-align: center;
+}
+
+.WeatherDayListNoResults * {
+	display: inline-block;
+}
+
+.WeatherDayListNoResults img {
+	filter: invert(100%);
 }
 
 .WeatherDayList p, .WeatherDayList h2 {
@@ -145,19 +155,6 @@ select.form-control:focus,
 	padding-bottom: 30px;
 	background-color: #fff;
 	border-radius: 5px;
-	box-shadow: 0 0 8px #333;
-}
-
-.WeatherDayNoResults {
-	width: 200px;
-	display: inline-block;
-	text-align: center;
-	margin: 10px;
-	padding: 20px;
-	padding-bottom: 30px;
-	background-color: #fff;
-	border-radius: 5px;
-	height: 268px;
 	box-shadow: 0 0 8px #333;
 }
 
@@ -196,7 +193,44 @@ footer {
 	padding: 2px;
 }
 
+.fade-in {
+	animation: fade-in-animation 1s;
+}
 
+@keyframes fade-in-animation {
+	from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.fade-in-and-drop {
+	position: relative;
+	animation: fade-in-animation 1s;
+}
+
+@keyframes fade-in-animation {
+	from { opacity: 0; bottom: 50px; }
+    to   { opacity: 1; bottom: 0;}
+}
+
+.slide-out {
+	position: relative;
+	animation: slide-out-animation 1s;
+}
+
+@keyframes slide-out-animation {
+	from { opacity: 1; top: 0; }
+	to { opacity: 0; top: 30px; }
+}
+
+.slide-in {
+	position: relative;
+	animation: slide-in-animation 1s;
+}
+
+@keyframes slide-in-animation {
+	from { opacity: 0; top: -30px; }
+	to { opacity: 1; top: 0; }
+}
 
 
 
