@@ -1,5 +1,5 @@
 {
-  "homepage": "./",
+  "homepage": "https://mcbp.github.io/5day-Weather-App",
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
@@ -9,7 +9,8 @@
     "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.3",
     "react-fade-in": "^0.1.6",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "yarn": "^1.16.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -19,7 +19,7 @@ class WeatherImage extends Component {
 			case "thunderstorm with light drizzle":
 			case "thunderstorm with drizzle":
 			case "thunderstorm with heavy drizzle":
-				fileName = "/img/weather_icon-28.png"; break
+				fileName = "./img/weather_icon-28.png"; break
 			
 			// drizzle
 			case "light intensity drizzle":
@@ -31,13 +31,13 @@ class WeatherImage extends Component {
 			case "shower rain and drizzle":
 			case "heavy shower rain and drizzle":
 			case "shower drizzle":
-				fileName = "/img/weather_icon-19.png"; break
+				fileName = "./img/weather_icon-19.png"; break
 			
 			
 			// rain
 			case "light rain":
 			case "light intensity shower rain ":
-				fileName = "/img/weather_icon-19.png"; break
+				fileName = "./img/weather_icon-19.png"; break
 			case "moderate rain":
 			case "heavy intensity rain":
 			case "very heavy rain":
@@ -46,7 +46,7 @@ class WeatherImage extends Component {
 			case "shower rain":
 			case "heavy intensity shower rain":
 			case "ragged shower rain":
-				fileName = "/img/weather_icon-22.png"; break
+				fileName = "./img/weather_icon-22.png"; break
 				
 			// snow
 			case "light snow":
@@ -59,7 +59,7 @@ class WeatherImage extends Component {
 			case "light shower snow":
 			case "shower snow":
 			case "heavy shower snow":
-				fileName = "/img/weather_icon-31.png"; break
+				fileName = "./img/weather_icon-31.png"; break
 				
 			// atmosphere
 			case "mist":
@@ -70,24 +70,24 @@ class WeatherImage extends Component {
 			case "sand":
 			case "dust":
 			case "volcanic ash":
-				fileName = "/img/weather_icon-39.png"; break
+				fileName = "./img/weather_icon-39.png"; break
 			case "squalls":
 			case "tornado":
-				fileName = "/img/weather_icon-61.png"; break
+				fileName = "./img/weather_icon-61.png"; break
 				
 			// clear
 			case "clear sky":
-				fileName = "/img/weather_icon-01.png"; break
+				fileName = "./img/weather_icon-01.png"; break
 				
 			// clouds
 			case "few clouds":
 			case "scattered clouds":
 			case "broken clouds":
 			case "overcast clouds":
-				fileName = "/img/weather_icon-16.png"; break
+				fileName = "./img/weather_icon-16.png"; break
 
 			default:
-				fileName = "/img/weather_icon-62.png"; break
+				fileName = "./img/weather_icon-62.png"; break
 
 		}
 		
