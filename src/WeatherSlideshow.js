@@ -6,10 +6,10 @@ class WeatherSlideshow extends Component {
 		super(props)
 		this.state = {
 			images: [
-				"%PUBLIC_URL%/img/weather_icon-01.png",
-				"%PUBLIC_URL%/img/weather_icon-45.png",
-				"%PUBLIC_URL%/img/weather_icon-31.png",
-				"%PUBLIC_URL%/img/weather_icon-58.png"
+				"/img/weather_icon-01.png",
+				"/img/weather_icon-45.png",
+				"/img/weather_icon-31.png",
+				"/img/weather_icon-58.png"
 				
 			],
 			currentIndex: 0,
